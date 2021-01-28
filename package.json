@@ -1,0 +1,22 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Learning node.js, express.js, mongoDB",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ranjeet2003/Natours.git"
+  },
+  "author": "Ranjeet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ranjeet2003/Natours/issues"
+  },
+  "homepage": "https://github.com/ranjeet2003/Natours#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
