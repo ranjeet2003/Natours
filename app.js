@@ -86,6 +86,24 @@ app.patch('/api/v1/tours/:id', (req, res) => {
     },
   });
 });
+// Handleing delete request
+
+app.delete('/api/v1/tours/:id', (req, res) => {
+  if (req.params.id * 1 > tours.length) {
+    // if (!tours) {
+    return res.status(404).json({
+      status: 'fail',
+      message: 'Invalid request',
+    });
+  }
+
+  res.status(204).json({
+    data: {
+      status: 'Success',
+      message: '<Data Deleted Successfully>',
+    },
+  });
+});
 
 const port = 3000;
 app.listen(port, () => {
