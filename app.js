@@ -32,15 +32,15 @@ app.get('/api/v1/tours', (req, res) => {
 app.get('/api/v1/tours/:id', (req, res) => {
   console.log(req.params);
   const id = req.params.id * 1;
+  const tour = tours.find((el) => el.id === id);
 
-  if (id > tours.length) {
+  // if (id > tours.length) {
+  if (!tours) {
     return res.status(404).json({
       status: 'fail',
       message: 'Invalid request',
     });
   }
-
-  const tour = tours.find((el) => el.id === id);
 
   res.status(200).json({
     status: 'success',
@@ -68,6 +68,23 @@ app.post('/api/v1/tours', (req, res) => {
       });
     }
   );
+});
+
+app.patch('/api/v1/tours/:id', (req, res) => {
+  if (req.params.id * 1 > tours.length) {
+    // if (!tours) {
+    return res.status(404).json({
+      status: 'fail',
+      message: 'Invalid request',
+    });
+  }
+
+  res.status(200).json({
+    data: {
+      status: 'Success',
+      message: '<Updated Successfully>',
+    },
+  });
 });
 
 const port = 3000;
