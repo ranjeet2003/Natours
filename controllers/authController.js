@@ -34,7 +34,7 @@ exports.login = catchAsync(async (req, res, next) => {
   const user = await User.findOne({ email }).select('+password');
   const correct = user.correctPassword(password, user.password);
 
-  if (!user || correct) {
+  if (!user || !correct) {
     return next(new AppEroor('Incorrect email or password', 401));
   }
 
